@@ -135,24 +135,53 @@ async function countryInformation() {
   }
 }
 
-const v=document.querySelector('#country')
-v.addEventListener('submit',()=>{
-  function searchCountry(input) {
-    const searchTerm = input.toLowerCase();
-    const searchResults = [];
+// const v=document.querySelector('#country')
+// v.addEventListener('submit',()=>{
+//   function searchCountry(input) {
+//     const searchTerm = input.toLowerCase();
+//     const searchResults = [];
   
-    for (let i = 0; i < data.length; i++) {
-      const country = data[i];
-      const name = country.name.toLowerCase();
+//     for (let i = 0; i < data.length; i++) {
+//       const country = data[i];
+//       const name = country.name.toLowerCase();
   
-      if (name.includes(searchTerm)) {
-        searchResults.push(country);
-      }
-    }
+//       if (name.includes(searchTerm)) {
+//         searchResults.push(country);
+//       }
+//     }
   
-    return searchResults;
-  }
-  searchCountry()
-})
+//     return searchResults;
+//   }
+//   searchCountry()
+// })
 
+  const countrySearch = document.getElementById('country');
+  countrySearch.addEventListener('keydown', (event) => {
+    // event.preventDefault()
+    if (event.key === 'Enter') {
+      const inputValue = countrySearch.value;
+      (async () => {
+        try {
+          const countriesData = await countryInformation();
+          const selectedcountry=countriesData.find(country=>country.name.toLowerCase()==inputValue.toLowerCase())
+            if (selectedcountry) {
+              const mainContainer=document.getElementById('main')
+              mainContainer.innerHTML=''
+              displayCountry(selectedcountry)
+            }
+          }
+        catch (error) {
+          console.error('Error fetching country information:', error);
+        }
+      })();
+    }
+  });
+const countrylist=document.getElementById('main')
+countrylist.addEventListener('click',(event)=>{
+  const yen=document.querySelector('.container')
+  yen.forEach(elem=>{
+    countrylist.innerHTML=''
+    displayCountry(elem)
+  })
+})
 
