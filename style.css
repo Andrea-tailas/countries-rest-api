@@ -8,11 +8,9 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
     font-size: 18px;
+    background-color: hsl(0, 0%, 98%);
 }
-
-
 header .search-container .inputDiv{
- 
     width: 50%;
 }
 
@@ -28,7 +26,6 @@ header .search-container .inputDiv input{
 }
 header .search-container .dropDown{
     width: 50%;
-   
     display: flex;
     justify-content: end;
     outline: none;
@@ -86,7 +83,7 @@ main .container{
     margin-bottom: 2rem;
     height: 380px;
     width: 300px;
-    background-color:hsl(0, 0%, 98%) ;
+    background-color:hsl(0, 0%, 100%) ;
 }
 main .container .info p{
     font-size: 1.1rem;
