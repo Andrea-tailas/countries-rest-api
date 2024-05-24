@@ -91,13 +91,13 @@ main{
     margin-bottom: 1rem;
 }
 .dark-mode{
-    background-color: black;
+    background-color:hsl(207, 26%, 17%);
     color: aliceblue;
 }
 .dark-mode main .container{
     color: white;
 
-background-color: rgb(8, 6, 34);
+background-color: hsl(209, 23%, 22%);
 }
 main .container{
     box-shadow: 1px 1px 4px black;
