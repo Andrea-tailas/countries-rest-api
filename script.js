@@ -1,4 +1,7 @@
-
+const dark=document.getElementById('theme')
+dark.addEventListener('click',()=>{
+    document.body.classList.toggle('dark-mode')
+})
 //filtering data from api
 function displayCountry(data) {
   const mainContainer = document.getElementById('main')

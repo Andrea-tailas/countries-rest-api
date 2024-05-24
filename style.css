@@ -77,7 +77,15 @@ main{
     margin-top: 10px;
     margin-bottom: 1rem;
 }
+.dark-mode{
+    background-color: black;
+    color: aliceblue;
+}
+.dark-mode main .container{
+    color: white;
 
+background-color: rgb(8, 6, 34);
+}
 main .container{
     box-shadow: 1px 1px 4px black;
     margin-bottom: 2rem;
