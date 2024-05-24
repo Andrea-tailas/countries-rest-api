@@ -91,6 +91,7 @@ main .container{
     margin-bottom: 2rem;
     height: 380px;
     width: 300px;
+    margin-top: 3rem;
     background-color:hsl(0, 0%, 100%) ;
 }
 main .container .info p{
