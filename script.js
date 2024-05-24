@@ -1,23 +1,32 @@
+
+//dark mode
 const dark=document.getElementById('theme')
 dark.addEventListener('click',()=>{
     document.body.classList.toggle('dark-mode')
+    const dk=document.getElementById('dk')
+    dk.innerHTML="☪️Dark Mode"
 })
+
+
+
+
+
 //filtering data from api
 function displayCountry(data) {
-  const mainContainer = document.getElementById('main')
+  const main = document.getElementById('main')
 
-  const mainDiv = document.createElement('div');
-  mainDiv.classList.add('container');
-
+  const container = document.createElement('div');
+  container.classList.add('container');
   const imageDiv = document.createElement('div');
   imageDiv.classList.add('image');
-  const img = document.createElement('img');
+  const image = document.createElement('img');
   flag_image = data.flags['png']
-  img.src = flag_image;
-  imageDiv.appendChild(img);
+  image.src = flag_image;
+  imageDiv.appendChild(image);
 
-  const infoDiv = document.createElement('div');
-  infoDiv.classList.add('info');
+
+  const info = document.createElement('div');
+  info.classList.add('info');
 
   const h3 = document.createElement('h3');
 
@@ -38,13 +47,13 @@ function displayCountry(data) {
   capital.innerHTML = `<span>Capital:</span> <span>${data.capital}</span>`;
   contryInfo.appendChild(capital);
 
-  infoDiv.appendChild(h3);
-  infoDiv.appendChild(contryInfo);
+  info.appendChild(h3);
+  info.appendChild(contryInfo);
 
-  mainDiv.appendChild(imageDiv);
-  mainDiv.appendChild(infoDiv);
+  container.appendChild(imageDiv);
+  container.appendChild(info);
 
-  mainContainer.appendChild(mainDiv);
+  main.appendChild(container);
 
 }
 //countries sorting
@@ -125,4 +134,25 @@ async function countryInformation() {
     console.error('There has been a problem with your fetch operation: \n' + error.message);
   }
 }
+
+const v=document.querySelector('#country')
+v.addEventListener('submit',()=>{
+  function searchCountry(input) {
+    const searchTerm = input.toLowerCase();
+    const searchResults = [];
+  
+    for (let i = 0; i < data.length; i++) {
+      const country = data[i];
+      const name = country.name.toLowerCase();
+  
+      if (name.includes(searchTerm)) {
+        searchResults.push(country);
+      }
+    }
+  
+    return searchResults;
+  }
+  searchCountry()
+})
+
 
