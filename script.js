@@ -1,23 +1,5 @@
 
-async function countryInformation() {
-
-  const jsonUrl = './data.json';
-
-  try {
-
-    const response = await fetch(jsonUrl);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('There has been a problem with your fetch operation: \n' + error.message);
-  }
-}
+//filtering data from api
 function displayCountry(data) {
   const mainContainer = document.getElementById('main')
 
@@ -62,6 +44,7 @@ function displayCountry(data) {
   mainContainer.appendChild(mainDiv);
 
 }
+//countries sorting
 
 function displayCountries(contriesData, selectedContinent) {
   const mainContainer = document.getElementById('main')
@@ -120,5 +103,23 @@ countrySearch.addEventListener('keydown', (event) => {
 })();
 
 
+async function countryInformation() {
 
+  const jsonUrl = './data.json';
+
+  try {
+
+    const response = await fetch(jsonUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation: \n' + error.message);
+  }
+}
 

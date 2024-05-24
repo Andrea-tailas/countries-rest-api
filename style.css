@@ -71,8 +71,8 @@ header .search-container{
 }
 main{
    
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr));
@@ -82,12 +82,10 @@ main{
 }
 
 main .container{
-    
     box-shadow: 1px 1px 4px black;
     margin-bottom: 2rem;
-    height: 400px;
-    
-    width: max-content;
+    height: 380px;
+    width: 300px;
     background-color:hsl(0, 0%, 98%) ;
 }
 main .container .info p{
@@ -110,6 +108,7 @@ main .container .image{
 }
 img{
     width: 100%;
+    height: 100%;
 }
 main .container .info{
     margin: 0px 8px 10px;
