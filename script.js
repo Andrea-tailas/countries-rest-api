@@ -133,7 +133,6 @@ async function countryInformation() {
 //   searchCountry()
 // })
 
-
   // const search=document.querySelector('#country')
   // search.addEventListener('input',(event)=>{
   //   const searchtext=event.target.value.toLowerCase()
@@ -144,7 +143,6 @@ async function countryInformation() {
   //     displayCountry(filtered)
   //   })
   // })
-
   const countrySearch = document.getElementById('country');
   countrySearch.addEventListener('keydown', (event) => {
     // event.preventDefault()
@@ -174,5 +172,4 @@ countrylist.addEventListener('click',(event)=>{
     displayCountry(elem)
   })
 })
-
 
