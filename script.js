@@ -83,25 +83,6 @@ filterDropdown.addEventListener('change', () => {
 });
 
 
-const countrySearch = document.getElementById('country');
-countrySearch.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    const inputValue = countrySearch.value;
-    (async () => {
-      try {
-        const countriesData = await countryInformation();
-        countriesData.forEach(country => {
-          if (country.name.lower() === inputValue.toLowerCase()) {
-            console.log(country)
-            displayCountry(country);
-          }
-        })
-      } catch (error) {
-        console.error('Error fetching country information:', error);
-      }
-    })();
-  }
-});
 
 (async () => {
   try {
@@ -116,12 +97,9 @@ countrySearch.addEventListener('keydown', (event) => {
 
 
 async function countryInformation() {
-
-  const jsonUrl = './data.json';
-
   try {
 
-    const response = await fetch(jsonUrl);
+    const response = await fetch('./data.json');
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -135,24 +113,66 @@ async function countryInformation() {
   }
 }
 
-const v=document.querySelector('#country')
-v.addEventListener('submit',()=>{
-  function searchCountry(input) {
-    const searchTerm = input.toLowerCase();
-    const searchResults = [];
+// const v=document.querySelector('#country')
+// v.addEventListener('submit',()=>{
+//   function searchCountry(input) {
+//     const searchTerm = input.toLowerCase();
+//     const searchResults = [];
   
-    for (let i = 0; i < data.length; i++) {
-      const country = data[i];
-      const name = country.name.toLowerCase();
+//     for (let i = 0; i < data.length; i++) {
+//       const country = data[i];
+//       const name = country.name.toLowerCase();
   
-      if (name.includes(searchTerm)) {
-        searchResults.push(country);
-      }
+//       if (name.includes(searchTerm)) {
+//         searchResults.push(country);
+//       }
+//     }
+  
+//     return searchResults;
+//   }
+//   searchCountry()
+// })
+
+
+  // const search=document.querySelector('#country')
+  // search.addEventListener('input',(event)=>{
+  //   const searchtext=event.target.value.toLowerCase()
+  //   fetch('./data.json')
+  //   .then(res=>res.json())
+  //   .then(data=>{
+  //     const filtered=data.filter(country=>country.name.toLowerCase().includes(searchtext))
+  //     displayCountry(filtered)
+  //   })
+  // })
+
+  const countrySearch = document.getElementById('country');
+  countrySearch.addEventListener('keydown', (event) => {
+    // event.preventDefault()
+    if (event.key === 'Enter') {
+      const inputValue = countrySearch.value;
+      (async () => {
+        try {
+          const countriesData = await countryInformation();
+          const selectedcountry=countriesData.find(country=>country.name.toLowerCase()==inputValue.toLowerCase())
+            if (selectedcountry) {
+              const mainContainer=document.getElementById('main')
+              mainContainer.innerHTML=''
+              displayCountry(selectedcountry)
+            }
+          }
+        catch (error) {
+          console.error('Error fetching country information:', error);
+        }
+      })();
     }
-  
-    return searchResults;
-  }
-  searchCountry()
+  });
+const countrylist=document.getElementById('main')
+countrylist.addEventListener('click',(event)=>{
+  const yen=document.querySelector('.container')
+  yen.forEach(elem=>{
+    countrylist.innerHTML=''
+    displayCountry(elem)
+  })
 })
 
 
