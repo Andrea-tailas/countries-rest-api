@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+
+header .search-container .inputDiv{
+ 
+    width: 50%;
+}
+
+header .search-container .inputDiv input{
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 1px 1px 4px black;
+    width: 50%;
+    outline: none;
+   
+}
+header .search-container .dropDown{
+    width: 50%;
+   
+    display: flex;
+    justify-content: end;
+    outline: none;
+
+}
+header .search-container .dropDown #filter-dropdown{
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    width: 50%;
+    cursor: pointer;
+  
+}
+
+header .navBox{
+    box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.89);
+    width: 100%;
+    margin-bottom: 20px;
+}
+header nav{
+
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0px;
+}
+
+header nav #theme{
+    cursor: pointer;
+}
+
+header .search-container{
+
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+main{
+   
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr));
+    grid-gap: 2rem;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+}
+
+main .container{
+    
+    box-shadow: 1px 1px 4px black;
+    margin-bottom: 2rem;
+    height: 400px;
+    
+    width: max-content;
+    background-color:hsl(0, 0%, 98%) ;
+}
+main .container .info p{
+    font-size: 1.1rem;
+    margin: 10px 0px;
+}
+main .container .info .bold{
+    font-weight: 600;
+ 
+}
+
+main .container .info .faint{
+    font-weight: 400;
+    color: rgb(65, 71, 68);
+}
+main .container .image{
+
+    height: 50%;
+    margin-bottom:10px;
+}
+img{
+    width: 100%;
+}
+main .container .info{
+    margin: 0px 8px 10px;
+}
+
+main .container .info h3{
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 10px 0px; 
+}
+
